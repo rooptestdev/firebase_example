@@ -39,10 +39,10 @@ class MyApp extends StatelessWidget {
             return ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (BuildContext context, int index) {
-                final docData = snapshot.data!.docs[index].data();
-                //final dateTime = (docData!['timestamp'] as Timestamp).toDate();
+                final docData = snapshot.data!.docs[index].data()! as Map;
+                final dateTime = (docData['timestamp'] as Timestamp).toDate();
                 return ListTile(
-                  title: Text(docData.toString()),
+                  title: Text(dateTime.toString()),
                 );
               },
             );
